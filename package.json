@@ -1,0 +1,21 @@
+{
+  "name": "graal-jvm-interop-talk",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "mvn clean install",
+    "start:bcrypt": "./node-jvm-launcher.sh ./examples/bcrypt/index.js",
+    "start:rabbitmq": "./node-jvm-launcher.sh ./examples/snippets/rabbitmq.js",
+    "start:rabbitmq-take-2": "./node-jvm-launcher.sh ./examples/snippets/rabbitmq-take-2.js",
+    "examples": "./node-jvm-launcher.sh ./examples/snippets/run-all.js",
+    "test": "./node-jvm-launcher.sh node_modules/mocha/bin/_mocha '**/*.@(spec|it).js'"
+  },
+  "author": "laurynasl@wix.com",
+  "dependencies": {
+    "express": "4.16.4"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "5.2.0",
+    "node-fetch": "^2.3.0"
+  }
+}
