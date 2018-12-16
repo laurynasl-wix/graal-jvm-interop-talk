@@ -28,19 +28,21 @@ function publishMessage() {
 }
 
 async function runAll() {
+    const rabbitmqTake2 = execute("./rabbitmq-take-2.js");
+    await waitFor(5000);
+    publishMessage();
+    await rabbitmqTake2;
+
     await execute("./hello-world.js");
     await execute("./bcrypt.js");
     await execute("./callback.js");
+    await execute("./async.js");
     
     const rabbitmq = execute("./rabbitmq.js");
     await waitFor(5000);
     publishMessage();
     await rabbitmq;
     
-    const rabbitmqTake2 = execute("./rabbitmq-take-2.js");
-    await waitFor(5000);
-    publishMessage();
-    await rabbitmqTake2;
 }
 
 runAll();

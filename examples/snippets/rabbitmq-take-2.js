@@ -1,3 +1,4 @@
+require('../../ensure-classpath');
 const {bindCallback} = require("../../lib/interop");
 
 const ConnectionFactory = Java.type("com.rabbitmq.client.ConnectionFactory");

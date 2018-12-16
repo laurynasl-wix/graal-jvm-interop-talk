@@ -32,6 +32,38 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.25</version>
         </dependency>
+
+        <dependency>
+            <groupId>graal</groupId>
+            <artifactId>graal-js</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${java.home}/languages/js/graaljs.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>graal</groupId>
+            <artifactId>trufflenode</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${java.home}/languages/js/trufflenode.jar</systemPath>
+        </dependency>
+
+        <dependency>
+            <groupId>graal</groupId>
+            <artifactId>truffle</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${java.home}/lib/truffle/truffle-api.jar</systemPath>
+        </dependency>
+        
+        <dependency>
+            <groupId>graal</groupId>
+            <artifactId>sdk</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${java.home}/lib/boot/graal-sdk.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>

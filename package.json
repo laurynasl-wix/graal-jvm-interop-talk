@@ -3,19 +3,21 @@
   "version": "0.0.1",
   "scripts": {
     "build": "mvn clean install",
-    "start:bcrypt": "./node-jvm-launcher.sh ./examples/bcrypt/index.js",
-    "start:rabbitmq": "./node-jvm-launcher.sh ./examples/snippets/rabbitmq.js",
-    "start:rabbitmq-take-2": "./node-jvm-launcher.sh ./examples/snippets/rabbitmq-take-2.js",
-    "examples": "./node-jvm-launcher.sh ./examples/snippets/run-all.js",
-    "test": "./node-jvm-launcher.sh node_modules/mocha/bin/_mocha '**/*.@(spec|it).js'"
+    "start:bcrypt": "node --jvm ./examples/bcrypt/index.js",
+    "start:rabbitmq": "node --jvm ./examples/snippets/rabbitmq.js",
+    "start:rabbitmq-take-2": "node --jvm ./examples/snippets/rabbitmq-take-2.js",
+    "examples": "node --jvm ./examples/snippets/run-all.js",
+    "test": "node --jvm node_modules/mocha/bin/_mocha '**/*.@(spec|it).js'"
   },
   "author": "laurynasl@wix.com",
   "dependencies": {
-    "express": "4.16.4"
+    "express": "4.16.4",
+    "bindings": "~1.2.1"
   },
   "devDependencies": {
     "chai": "4.2.0",
     "mocha": "5.2.0",
     "node-fetch": "^2.3.0"
-  }
+  },
+  "gypfile": true
 }

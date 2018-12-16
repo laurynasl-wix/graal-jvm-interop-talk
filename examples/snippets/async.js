@@ -1,11 +1,10 @@
+require('../../ensure-classpath');
 const {bindCallback} = require('../../lib/interop');
 const SomethingAsync = Java.type("examples.Async");
 
 const bound = bindCallback((error, result) => {
     console.log(`node.js: ${result}`);
-    return new Promise((resolve) => {
-        setTimeout(() => resolve("Hey!"), 100);
-    })
+    bound.unbind();
 });
 
 SomethingAsync.callMeBack(bound);

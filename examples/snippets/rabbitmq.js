@@ -1,3 +1,4 @@
+require('../../ensure-classpath');
 const ConnectionFactory = Java.type("com.rabbitmq.client.ConnectionFactory");
 const JString = Java.type("java.lang.String");
 const ExtendDeliverCallback = Java.extend(Java.type("com.rabbitmq.client.DeliverCallback"));

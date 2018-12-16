@@ -1,3 +1,4 @@
+require('../../ensure-classpath');
 const express = require('express');
 const BCrypt = Java.type("org.mindrot.jbcrypt.BCrypt");
 

@@ -1,14 +1,13 @@
 package examples;
 
-import interop.core.BoundJSCallback;
-
 import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ForkJoinPool;
+import java.util.function.Function;
 
 public class Async {
-    public static void callMeBack(BoundJSCallback<String, String> jsCallback) {
+    public static void callMeBack(Function<Object[], CompletionStage<Object>> jsCallback) {
         ForkJoinPool.commonPool().execute(() -> {
-            CompletionStage<String> nodeResult = jsCallback.apply("Hello from JVM!", null);
+            CompletionStage<Object> nodeResult = jsCallback.apply(new Object[]{"Hello from JVM!", null});
             nodeResult.handle((result, error) -> {
                 if (error != null) {
                     System.err.println(error.getMessage());
