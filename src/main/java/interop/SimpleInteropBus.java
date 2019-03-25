@@ -9,7 +9,6 @@ import java.util.concurrent.LinkedBlockingDeque;
 
 public class SimpleInteropBus implements InteropBus {
     public final LinkedBlockingDeque<Thunk<?, ?>> pendingQueue = new LinkedBlockingDeque<>();
-    public final LinkedBlockingDeque<Thunk<?, ?>> readyQueue = new LinkedBlockingDeque<>();
 
     public final static SimpleInteropBus global = new SimpleInteropBus();
 
