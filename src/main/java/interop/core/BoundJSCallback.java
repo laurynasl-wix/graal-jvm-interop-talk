@@ -2,6 +2,7 @@ package interop.core;
 
 import java.util.concurrent.CompletionStage;
 import java.util.function.BiFunction;
+import java.util.function.Function;
 
-public interface BoundJSCallback<T, U>
-        extends BiFunction<T, Throwable, CompletionStage<U>> {}
+public interface BoundJSCallback extends Function<Object[], CompletionStage<Object>> {
+}

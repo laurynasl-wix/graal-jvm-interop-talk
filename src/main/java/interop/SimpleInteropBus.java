@@ -8,16 +8,16 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.LinkedBlockingDeque;
 
 public class SimpleInteropBus implements InteropBus {
-    public final LinkedBlockingDeque<Thunk<?, ?>> pendingQueue = new LinkedBlockingDeque<>();
+    public final LinkedBlockingDeque<Thunk> pendingQueue = new LinkedBlockingDeque<>();
 
     public final static SimpleInteropBus global = new SimpleInteropBus();
 
     @Override
-    public <T, U> BoundJSCallback<T, U> bindCallback(final Object callback) {
-        return (argument, error) -> {
-            CompletableFuture<U> callbackCompleted = new CompletableFuture<>();
+    public BoundJSCallback bindCallback(final Object callback) {
+        return (arguments) -> {
+            CompletableFuture<Object> callbackCompleted = new CompletableFuture<>();
             try {
-                pendingQueue.put(new Thunk<>(callback, argument, error, callbackCompleted));
+                pendingQueue.put(new Thunk(callback, arguments, callbackCompleted));
                 return callbackCompleted;
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
