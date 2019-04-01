@@ -1,13 +1,12 @@
-const MessageQueue = Java.type("examples.rabbitmq.MessageQueue");
-const mq = new MessageQueue();
-
-const handleMessage = message => console.log(message);
+const RabbitMQ = Java.type("examples.rabbitmq.RabbitMQ");
+const mq = new RabbitMQ();
 
 
 
+const handleMessage = console.log;
 
 mq.init();
-mq.addHandler("hello-rabbit", handleMessage);
+mq.addConsumer("hello-rabbit", handleMessage);
 
 
 

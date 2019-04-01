@@ -14,6 +14,7 @@ public class Async {
                     System.err.println(error.getMessage());
                 }
                 System.out.println("JVM: " + result);
+                System.exit(0);
                 return null;
             });
         });

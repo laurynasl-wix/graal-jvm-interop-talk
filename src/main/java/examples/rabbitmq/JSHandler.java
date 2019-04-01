@@ -2,7 +2,7 @@ package examples.rabbitmq;
 
 import interop.core.BoundJSCallback;
 
-public class JSHandler implements Handler {
+public class JSHandler implements MessageQueue.Handler {
     
     private final BoundJSCallback jsCallback;
 
@@ -13,5 +13,10 @@ public class JSHandler implements Handler {
     @Override
     public void handle(String message) {
         jsCallback.apply(new Object[]{message});
+    }
+
+    @Override
+    public String toString() {
+        return "JSHandler(" + jsCallback.toString() + ")";
     }
 }
