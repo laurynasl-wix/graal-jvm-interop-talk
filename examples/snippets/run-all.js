@@ -59,19 +59,19 @@ async function runAll() {
     await executeJs("./callback.js");
     await executeJs("./async.js");
 
-    const killRabbitmqJava = await execute("mvn", ["compile", "exec:java", '-Dexec.mainClass=examples.rabbitmq.JavaConsumerExample'], handlerRegistered);
+    const killRabbitmqJava = await execute("mvn", ["compile", "exec:java", '-Dexec.mainClass=mq.JavaConsumerExample'], handlerRegistered);
     publishMessage("Hello Java!");
-    await resolveAfter(500);
+    await resolveAfter(1000);
     await killRabbitmqJava();
 
     const killRabbitmqTake = await executeJs("./rabbitmq.js", handlerRegistered);
     publishMessage("Hello node!");
-    await resolveAfter(500);
+    await resolveAfter(1000);
     await killRabbitmqTake();
 
     const killRabbitmqTake2 = await executeJs("./rabbitmq-take-2.js", handlerRegistered);
     publishMessage("Hello node!");
-    await resolveAfter(500);
+    await resolveAfter(1000);
     await killRabbitmqTake2();
 }
 

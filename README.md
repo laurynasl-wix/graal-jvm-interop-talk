@@ -30,5 +30,5 @@ The naive implementation of rabbitmq consumer. Start it with
 
 ##### Async interop implementation
 
-The java part is [here](./src/main/java/interop) and the js part is [here](./lib/interop). 
+The java part is [here](./src/main/java/interop) and the js part is [here](./interop). 
 See slides for further details

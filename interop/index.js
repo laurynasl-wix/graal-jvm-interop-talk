@@ -17,4 +17,5 @@ exports.bindCallback = bus.bindCallback;
  */
 exports.terminate = () => {
     worker.postMessage("STOP");
+    worker.removeListener("message", executeThunk);
 };

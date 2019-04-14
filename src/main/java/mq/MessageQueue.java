@@ -1,4 +1,4 @@
-package examples.rabbitmq;
+package mq;
 
 public interface MessageQueue {
     void init();

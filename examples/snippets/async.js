@@ -1,4 +1,4 @@
-const {bindCallback} = require('../../lib/interop');
+const {bindCallback} = require('../../interop');
 const SomethingAsync = Java.type("examples.Async");
 
 const bound = bindCallback(result => {

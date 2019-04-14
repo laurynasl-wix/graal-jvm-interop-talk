@@ -1,9 +1,10 @@
-const RabbitMQ = Java.type("examples.rabbitmq.RabbitMQ");
+const RabbitMQ = Java.type("mq.RabbitMQ");
 const mq = new RabbitMQ();
-const JSHandler = Java.type("examples.rabbitmq.JSHandler");
-const {bindCallback} = require("../../lib/interop");
-
-const handleMessage = new JSHandler(bindCallback(console.log));
-
 mq.init();
-mq.addConsumer("hello-rabbit", handleMessage);
+const JSHandler = Java.type("mq.JSHandler");
+const {bindCallback} = require("../../interop");
+
+const handle = 
+    new JSHandler(bindCallback(console.log));
+
+mq.addConsumer("hello-rabbit", handle);

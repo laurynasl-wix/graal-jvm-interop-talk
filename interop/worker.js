@@ -17,6 +17,8 @@ function loop() {
     }
     if (!stopping) {
         setImmediate(loop);
+    } else {
+        process.exit(0);
     }
 }
 

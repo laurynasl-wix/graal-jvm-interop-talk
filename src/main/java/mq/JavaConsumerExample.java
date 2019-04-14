@@ -1,4 +1,4 @@
-package examples.rabbitmq;
+package mq;
 
 public class JavaConsumerExample {
     public static void main(String[] args) throws InterruptedException {

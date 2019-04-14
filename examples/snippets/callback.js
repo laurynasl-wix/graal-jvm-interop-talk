@@ -1,8 +1,7 @@
-const List = Java.type("java.util.ArrayList");
+const Arrays = Java.type("java.util.Arrays");
 
-const aList = new List();
+const javaList = Arrays.asList(1, 2);
 
-aList.add(1);
-aList.add(2);
-
-aList.forEach(v => console.log(`In node: ${v}`));
+javaList.stream()
+    .map(v => `In node: ${v}`)
+    .forEach(console.log);

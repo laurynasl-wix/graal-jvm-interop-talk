@@ -1,4 +1,4 @@
-package examples.rabbitmq;
+package mq;
 
 import interop.core.BoundJSCallback;
 

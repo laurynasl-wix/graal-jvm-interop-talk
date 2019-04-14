@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const {expect} = require('chai');
 
 const {app} = require('./app');
 const port = 3001;
@@ -8,14 +9,13 @@ describe('server', function () {
     this.timeout(5000);
     let server;
 
-    before(done => app.listen(port, (err, serverInstance) => {
-        server = serverInstance;
-        done(err)
-    }));
+    before(done => {
+        server = app.listen(port, done)
+    });
 
     after(done => {
         if (server) {
-            server.stop(done)
+            server.close(done)
         } else {
             done()
         }
