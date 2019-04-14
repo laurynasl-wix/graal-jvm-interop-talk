@@ -3,7 +3,7 @@
 This repository contains the companion code to the [presentation](https://speakerdeck.com/laurynaslwix/using-jvm-libraries-in-node-dot-js). 
 ### Setup
 
-1. Install [GraalVM 1.0.0-RC10](https://github.com/oracle/graal/releases/tag/vm-1.0.0-rc10) 
+1. Install [GraalVM 1.0.0-RC14](https://github.com/oracle/graal/releases/tag/vm-1.0.0-rc14) 
 2. Make sure that the `node` and `npm` binaries distributed with GraalVM is on the `$PATH`
 3. Make sure you have [docker-compose](https://docs.docker.com/compose/install/) installed
 4. run `docker-compose up -d`

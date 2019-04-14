@@ -30,8 +30,8 @@ function execute(command, args, readyCondition) {
     return new Promise(resolve => {
         console.log(`====================== ${command} ${args.join(' ')} ===================`);
         const child = spawn(command, args, {stdio: ['pipe', 'pipe', 'pipe', 'ipc']});
-        pipeLines(child.stdout, process.stdout, line => 'sout| ' + line + '\n');
-        pipeLines(child.stderr, process.stderr, line => 'serr| ' + line + '\n');
+        pipeLines(child.stdout, process.stdout, line => '\x1b[32m' + line + '\x1b[0m\n');
+        pipeLines(child.stderr, process.stderr, line => '\x1b[33m' + line + '\x1b[0m\n');
         if (readyCondition) {
             readyCondition(child).then(() => resolve(() => killIfConnected(child)));
         }
